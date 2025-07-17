@@ -61,22 +61,22 @@ Todos os dados calculados para cada frame (número do frame, estado, ângulos do
 A ferramenta consegue realizar o carregamento de vídeo, onde para cada frame realiza a análise necessária retornando feedbacks visuais (Avatar indicando o quão correto está sendo o exercício) no próprio vídeo. Assim como no console de forma textual e uma análise, logo a seguir será exibido imagens extraídas da aplicação em execução.
 
 ![Exercício em transição](https://github.com/SidneyJunior01234/Corretor_Agachamento/blob/main/relatorios/imagens/avatar_trasicao.png?raw=true)
-*Avatar indicando transição*
+ *Avatar indicando transição*
 
 ![Exercício correto](https://github.com/SidneyJunior01234/Corretor_Agachamento/blob/main/relatorios/imagens/avatar_correto.png?raw=true)
-*Avatar indicando agachamento correto*
+ *Avatar indicando agachamento correto*
 
 Com a realização dos movimento e o auxílio do avatar, temos como informações para cada frame.
 
 ![Feedback](https://github.com/SidneyJunior01234/Corretor_Agachamento/blob/main/relatorios/imagens/feedback.png?raw=true)
-*Informações no console sobre os parâmetros de análise*
+ *Informações no console sobre os parâmetros de análise*
 
 As informações são armazenadas em um arquivo *.csv* que posteriormente retornam informações sobre o tempo de execução para cada agachamento e o tempo total em que foi detectado o esstado "em pé".
 
 ![Dados armazenados](https://github.com/SidneyJunior01234/Corretor_Agachamento/blob/main/relatorios/imagens/dados%20salvos.png?raw=true)
-*Dados armazenados em csv*
+ *Dados armazenados em csv*
 
 ![Análise dos dados](https://github.com/SidneyJunior01234/Corretor_Agachamento/blob/main/relatorios/imagens/analise.png?raw=true)
-
+ *Análise exibida no console*
 
 
