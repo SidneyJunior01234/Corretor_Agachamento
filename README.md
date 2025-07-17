@@ -34,6 +34,31 @@ Um agachamento eficaz e seguro requer que os pés estejam posicionados aproximad
 
  * Tolerância Percentual: Definido uma TOLERANCIA_PES_OMBRO_PERCENTUAL para permitir uma pequena variação na largura dos pés em relação aos ombros.
 
+### 4. Estados do Agachamento
+
+O sistema classifica o estado do usuário em "Em Pé", "Agachado" ou "Transição/Indefinido" com base nos ângulos dos joelhos e na posição do quadril.
+
+ * "Em Pé": Ângulo do joelho maior que THRESHOLD_ANGULO_JOELHO_EM_PE e quadril próximo à posição inicial.
+ * "Agachado": Ângulo do joelho menor que THRESHOLD_ANGULO_JOELHO_AGACHADO e quadril com queda significativa em relação à posição inicial.
+ * "Transição/Indefinido": Qualquer estado intermediário.
+
+### 5. Feedback Visual e Textual
+
+Visual na Tela: A cor dos landmarks no avatar muda dinamicamente:
+
+ * Verde: Indica que o usuário está em uma posição de agachamento correta.
+ * Amarelo: Representa um estado de transição ou indefinido.
+ * Vermelho: Sinaliza um erro postural, especificamente pés mal posicionados quando a pessoa está em pé, alertando para a correção da base antes do agachamento.
+
+Textual: Detalhes sobre o estado atual da pose, valores dos ângulos, posições do quadril e o status dos pés são impressos no console.
+
+### 6. Geração de Dados para Análise (CSV)
+
+Todos os dados calculados para cada frame (número do frame, estado, ângulos dos joelhos e tornozelos, distâncias dos pés e ombros, posições Y de ombros e quadris) são registrados em um arquivo CSV (parametros.csv). Este arquivo serve como um log completo da sessão de treino, permitindo análises posteriores detalhadas, identificação de padrões e até mesmo a geração de gráficos para visualização do progresso.
+
+## Resultados
+
+
 
 
 
