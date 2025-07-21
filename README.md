@@ -1,5 +1,5 @@
 ## 🚀 Como Executar
-Baixe o repositório (substitua SEU_USUARIO e SEU_REPOSITORIO):
+Baixe o repositório:
 
 ```
 git clone https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git
