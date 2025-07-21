@@ -97,7 +97,11 @@ O Corretor de Agachamento visa facilitar o acesso a um feedback sobre a execuç�
 
    5. "Em Pé": Joelhos estendidos (ângulo acima de um limiar_joelho_em_pe) e quadril na posição inicial (ou levemente abaixo).
 
+  ![agachamento transicao](https://github.com/SidneyJunior01234/Corretor_Agachamento/blob/main/relatorios/imagens/avatar_trasicao.png)
+  
    6. "Agachado": Joelhos flexionados (ângulo abaixo de um limiar_joelho_agachado) e quadril com queda significativa (acima de um limiar_queda_y_percentual em relação à posição inicial).
+
+  ![aachamento correto](https://github.com/SidneyJunior01234/Corretor_Agachamento/blob/main/relatorios/imagens/avatar_correto.png)
 
    7. "Transição/Indefinido": Entre os estados "Em Pé" e "Agachado", ou em posições que não se encaixam claramente.
 
@@ -174,8 +178,9 @@ Sidney Alves dos Santos Junior / github.com/SidneyJunior01234
 Baixe o repositório (substitua SEU_USUARIO e SEU_REPOSITORIO):
 
 ```
-git clone https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git
-cd SEU_REPOSITORIO
+mkdir Corretor_Agachamento
+cd Corretor_Agachamento
+git clone [https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git](https://github.com/SidneyJunior01234/Corretor_Agachamento.git)
 ```
 
 Crie e ative o ambiente virtual venv:
