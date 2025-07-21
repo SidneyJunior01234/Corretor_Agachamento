@@ -145,16 +145,6 @@ O Corretor de Agachamento se mostrou uma ferramenta que pode auxiliar na anális
 
 As métricas e os gráficos interativos fornecem um feedback quantitativo e visual, permitindo ao usuário entender melhor seu desempenho e identificar áreas para melhoria.
 
-Trabalhos futuros:
-
-Implementação de feedback auditivo para correção em tempo real.
-
-Detecção de erros comuns no agachamento (joelhos para dentro/fora, tronco inclinado).
-
-Adição de histórico de treinos e acompanhamento de progresso.
-
-Suporte para análise de outros exercícios.
-
 ## 💻 Interface Interativa
 A interface do aplicativo foi desenvolvida com Streamlit, oferecendo uma experiência amigável e intuitiva para o upload de vídeos, visualização da análise em tempo real e ajuste de parâmetros.
 
