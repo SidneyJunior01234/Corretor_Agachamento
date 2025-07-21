@@ -1,4 +1,4 @@
-# O Corretor de Agachamentos
+# 🏋️ Corretor de Agachamento
 
 ## Introdução
 
