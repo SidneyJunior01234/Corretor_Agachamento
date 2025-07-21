@@ -1,87 +1,225 @@
-# 🏋️ Corretor de Agachamento
+# 🏋️ Corretor de Agachamento com IA
 
-## Introdução
+Analise e melhore a sua forma de exectar agachamentos com feedback visual e um relatório pós-análise.
 
-O agachamento é um dos exercícios mais eficazes e completos para o desenvolvimento da força e da massa muscular dos membros inferiores e do core. No entanto, sua execução incorreta pode levar a sérias lesões, comprometendo não só o desempenho, mas a saúde a longo prazo. Problemas como desalinhamento dos joelhos, falta de profundidade e instabilidade da base são comuns, especialmente entre iniciantes ou em treinos sem supervisão adequada.
+![gif agachamento](https://github.com/SidneyJunior01234/Corretor_Agachamento/blob/main/relatorios/imagens/agachamento%20gif.gif)
 
-É nesse cenário que surge a necessidade de uma ferramenta acessível que auxilie os praticantes a aprimorar sua técnica. O projeto apresenta um Corretor de Agachamentos que utiliza visão computacional e o modelo de detecção de pose MediaPipe Pose para monitorar e analisar a execução do agachamento. A aplicação foi desenvolvida para identificar os principais erros relacionados a postura, como a abertura dos pés em relação aos ombros e a profundidade do movimento, onde um avatar por meio de cores retorna um feedback visual sobre o exercício.
+## 📑 Sumário
+   * Estrutura do Projeto
 
-## Desenvolvimento
+   * Funcionalidades
 
-O desenvolvimento do Corretor de Agachamentos baseia-se na visão computacional para análise de movimento e em algoritmos de processamento de dados, cujos os principais métodos e técnicas utilizados foram:
+   * Introdução
 
-### 1. Detecção de Pose com MediaPipe Pose
+   * Metodologia
 
-O MediaPipe Pose identifica 33 pontos cruciais no corpo humano (como ombros, quadris, joelhos, tornozelos e calcanhares) em cada frame do vídeo. Esses pontos são fornecidos com suas coordenadas X, Y (no espaço 2D da imagem) e Z (profundidade relativa), além de uma pontuação de visibilidade.
+   * Resultados da Análise
 
-### 2. Cálculo de Ângulos Articulares e Análise da Posição Vertical do Quadril
+   * Métricas Gerais
 
-Com os landmarks identificados, é utilizado a geometria analítica para calcular os ângulos formados pelas principais articulações envolvidas no agachamento.
+   * Gráficos e Visualizações
 
-  * Ângulos do Joelho: avalia a profundidade do agachamento. Calculamos o ângulo formado entre o quadril, o joelho e o tornozelo (para ambos os lados, esquerdo e direito). Um ângulo menor indica maior flexão do joelho, característico de um agachamento mais profundo.
-  * Ângulos do Tornozelo: verifica a estabilidade da base. O ângulo é calculado entre o joelho, o tornozelo e o calcanhar.
+   * Conclusão
 
-Para complementar a avaliação da profundidade e determinar os estados de "Em Pé" e "Agachado", monitoramos a posição vertical (coordenada Y) do quadril.
+   * Interface Interativa
 
- * Calibração Inicial: A posição Y média do quadril no primeiro frame.
- * Detecção de Queda: Comparamos a posição Y atual do quadril com a posição inicial. Se a queda exceder um limiar (definido como uma porcentagem da altura do frame para adaptabilidade), isso indica que o usuário desceu o suficiente para ser considerado em um agachamento ou transição.
+   * Tecnologias
 
-### 3. Avaliação da Distância dos Pés em Relação aos Ombros
+   * Como Executar
 
-Um agachamento eficaz e seguro requer que os pés estejam posicionados aproximadamente na largura dos ombros.
+   * Licença
 
- * Cálculo de Distâncias: A distância horizontal (X) entre os ombros e a distância horizontal entre os tornozelos (ou calcanhares) são calculadas em pixels.
+   * Referências Bibliográficas
 
- * Tolerância Percentual: Definido uma TOLERANCIA_PES_OMBRO_PERCENTUAL para permitir uma pequena variação na largura dos pés em relação aos ombros.
+## 📁 Estrutura do Projeto
+    Corretor_Agachamento/
+    ├── app.py
+    ├── data/
+    │   ├── brutos/
+    │   │   └── video_exemplo.mp4
+    │   └── relatorios/
+    │       ├── angulos_agachamento.html
+    │       ├── dados_agachamento.csv
+    │       ├── duracao_agachamentos_interativo.html
+    │       └── posicao_quadril_agachamento.html
+    ├── config/
+    │   └── configuracoes.py
+    ├── .gitignore
+    ├── requirements.txt
+    └── src/
+        ├── __init__.py
+        ├── core/
+        │   ├── __init__.py
+        │   ├── analisador_agachamento.py
+        │   ├── calculador_angulo.py
+        │   └── detector_pose.py
+        ├── manipulador_dados/
+        │   ├── __init__.py
+        │   └── gerenciador_csv.py
+        └── visualizacao/
+            ├── __init__.py
+            ├── desenhista_cv2.py
+            └── gerador_graficos.py
 
-### 4. Estados do Agachamento
+## 🔍 Funcionalidades
+   1. Detecção de pose em vídeos de agachamento.
 
-O sistema classifica o estado do usuário em "Em Pé", "Agachado" ou "Transição/Indefinido" com base nos ângulos dos joelhos e na posição do quadril.
+   2. Análise do ângulo dos joelhos e da queda do quadril.
 
- * "Em Pé": Ângulo do joelho maior que THRESHOLD_ANGULO_JOELHO_EM_PE e quadril próximo à posição inicial.
- * "Agachado": Ângulo do joelho menor que THRESHOLD_ANGULO_JOELHO_AGACHADO e quadril com queda significativa em relação à posição inicial.
- * "Transição/Indefinido": Qualquer estado intermediário.
+   3. Diferenciação dos estados de movimento: "Em Pé", "Agachado" e "Transição/Indefinido".
 
-### 5. Feedback Visual e Textual
+   4. Feedback visual no vídeo (cores para indicação de estado).
 
-Visual na Tela: A cor dos landmarks no avatar muda dinamicamente:
+   5. Ajuste de limiares de agachamento via sliders na interface Streamlit, permitindo customização para diferentes mobilidades (ex: idosos).
 
- * Verde: Indica que o usuário está em uma posição de agachamento correta.
- * Amarelo: Representa um estado de transição ou indefinido.
- * Vermelho: Sinaliza um erro postural, especificamente pés mal posicionados quando a pessoa está em pé, alertando para a correção da base antes do agachamento.
+   6. Geração de relatório detalhado com métricas e gráficos interativos (Plotly).
 
-Textual: Detalhes sobre o estado atual da pose, valores dos ângulos, posições do quadril e o status dos pés são impressos no console.
+   7. Cálculo de tempo total em pé e duração de agachamentos individuais e seus intervalos de recuperação.
 
-### 6. Geração de Dados para Análise (CSV)
+## 📌 Introdução
 
-Todos os dados calculados para cada frame (número do frame, estado, ângulos dos joelhos e tornozelos, distâncias dos pés e ombros, posições Y de ombros e quadris) são registrados em um arquivo CSV (parametros.csv). Este arquivo serve como um log completo da sessão de treino, permitindo análises posteriores detalhadas, identificação de padrões e até mesmo a geração de gráficos para visualização do progresso.
+A execução correta do agachamento é fundamental para maximizar os benefícios do exercício e prevenir lesões. Este projeto propõe um sistema inteligente de visão computacional para auxiliar usuários na prática do agachamento, oferecendo feedback em tempo real e uma análise pós-exercício detalhada.
 
-## Resultados
+Utilizando a biblioteca MediaPipe Pose para detecção de landmarks corporais, o sistema monitora continuamente a posição dos joelhos e do quadril, classificando o movimento em diferentes estados. A interface interativa desenvolvida com Streamlit permite o upload de vídeos e o ajuste de parâmetros cruciais, como os limiares de ângulo do joelho e a profundidade de queda do quadril, tornando-o adaptável a diversos perfis de usuários, desde iniciantes a indivíduos com mobilidade reduzida.
 
-A ferramenta consegue realizar o carregamento de vídeo, onde para cada frame realiza a análise necessária retornando feedbacks visuais (Avatar indicando o quão correto está sendo o exercício) no próprio vídeo. Assim como no console de forma textual e uma análise, logo a seguir será exibido imagens extraídas da aplicação em execução.
+O Corretor de Agachamento visa facilitar o acesso a um feedback sobre a execução de exercícios, contribuindo para uma prática física mais segura.
 
-![Exercício em transição](https://github.com/SidneyJunior01234/Corretor_Agachamento/blob/main/relatorios/imagens/avatar_trasicao.png?raw=true)
+## ⚙️ Metodologia
+### O processo de análise do agachamento envolve as seguintes etapas:
 
-*Avatar indicando transição*
+   1. Detecção de Pose: O vídeo do usuário é processado frame a frame utilizando o MediaPipe Pose. Isso extrai os landmarks (pontos chave) do corpo, como ombros, quadris, joelhos, tornozelos e pés.
 
-![Exercício correto](https://github.com/SidneyJunior01234/Corretor_Agachamento/blob/main/relatorios/imagens/avatar_correto.png?raw=true)
+   2. Cálculo de Ângulos: Com os landmarks, são calculados os ângulos das articulações do joelho e tornozelo para ambos os lados do corpo. A posição vertical do quadril também é monitorada.
 
-*Avatar indicando agachamento correto*
+   3. Calibração Inicial: No primeiro frame, a posição Y do quadril é calibrada como a posição de referência "em pé".
 
-Com a realização dos movimento e o auxílio do avatar, temos como informações para cada frame.
+   4. Classificação do Estado do Agachamento: Utilizando os ângulos calculados e a queda do quadril em relação à posição inicial, o sistema classifica o estado do corpo em:
 
-![Feedback](https://github.com/SidneyJunior01234/Corretor_Agachamento/blob/main/relatorios/imagens/feedback.png?raw=true)
+   5. "Em Pé": Joelhos estendidos (ângulo acima de um limiar_joelho_em_pe) e quadril na posição inicial (ou levemente abaixo).
 
-*Informações no console sobre os parâmetros de análise*
+   6. "Agachado": Joelhos flexionados (ângulo abaixo de um limiar_joelho_agachado) e quadril com queda significativa (acima de um limiar_queda_y_percentual em relação à posição inicial).
 
-As informações são armazenadas em um arquivo *.csv* que posteriormente retornam informações sobre o tempo de execução para cada agachamento e o tempo total em que foi detectado o esstado "em pé".
+   7. "Transição/Indefinido": Entre os estados "Em Pé" e "Agachado", ou em posições que não se encaixam claramente.
 
-![Dados armazenados](https://github.com/SidneyJunior01234/Corretor_Agachamento/blob/main/relatorios/imagens/dados%20salvos.png?raw=true)
+   8. Feedback Visual: O vídeo processado é exibido, com os landmarks e as linhas do esqueleto desenhados. A cor do esqueleto muda para indicar o estado atual (ex: verde para agachado correto, vermelho para pés desalinhados, amarelo para outros estados).
 
-*Dados armazenados em csv*
+   9. Gravação de Dados: A cada frame, os dados da pose (ângulos, posições e estado) são registrados em um arquivo CSV (dados_agachamento.csv) para análise posterior.
 
-![Análise dos dados](https://github.com/SidneyJunior01234/Corretor_Agachamento/blob/main/relatorios/imagens/analise.png?raw=true)
+   10. Relatório Final: Após o processamento do vídeo, um relatório detalhado é gerado, incluindo métricas resumidas e gráficos interativos.
 
-*Análise exibida no console*
+### Ajustes de Limiares
+Para garantir a adaptabilidade a diferentes usuários, o sistema permite o ajuste dinâmico dos seguintes limiares via sliders na interface:
 
+   1. Ângulo Mín. Joelho "Em Pé": Ângulo mínimo para o joelho ser considerado esticado.
 
+   2. Ângulo Máx. Joelho "Agachado": Ângulo máximo para o joelho ser considerado flexionado o suficiente para um agachamento.
+
+   3. Queda do Quadril para Agachamento (%): Percentual da altura do corpo que o quadril deve descer para o agachamento ser considerado profundo.
+
+## 📊 Resultados da Análise
+### Métricas Gerais
+Após a análise do vídeo, obtivemos as seguintes métricas gerais:
+
+   1. Tempo total em pé (geral): [VALOR_DO_TEMPO_TOTAL_EM_PE] segundos
+
+   2. Número de agachamentos completos detectados: [NÚMERO_DE_AGACHAMENTOS_DETECTADOS]
+
+   3. Duração média por agachamento: [DURACAO_MEDIA_AGACHAMENTOS] segundos
+
+   4. Tempo médio de recuperação entre agachamentos: [TEMPO_MEDIO_EM_PE_ENTRE_AGACHAMENTOS] segundos
+
+## Gráficos e Visualizações
+Para uma análise mais detalhada da execução do agachamento, os seguintes gráficos interativos foram gerados (abra os links para visualizar):
+
+![grafico 1]()
+*Gráfico 1: Variação dos Ângulos dos Joelhos e Tornozelos*
+
+![grafico 2]()
+*Gráfico 2: Posição Y Média do Quadril ao Longo do Tempo*
+
+![grafico 3]()
+*Gráfico 3: Duração de Cada Agachamento e Tempo em Pé*
+
+## ✅ Conclusão
+O Corretor de Agachamento se mostrou uma ferramenta que pode auxiliar na análise e correção da forma do agachamento. A capacidade de ajustar os limiares de detecção através da interface Streamlit é crucial para adaptar o sistema a diferentes usuários e níveis de mobilidade, como no caso de agachamentos mais rasos para idosos.
+
+As métricas e os gráficos interativos fornecem um feedback quantitativo e visual, permitindo ao usuário entender melhor seu desempenho e identificar áreas para melhoria.
+
+Trabalhos futuros:
+
+Implementação de feedback auditivo para correção em tempo real.
+
+Detecção de erros comuns no agachamento (joelhos para dentro/fora, tronco inclinado).
+
+Adição de histórico de treinos e acompanhamento de progresso.
+
+Suporte para análise de outros exercícios.
+
+## 💻 Interface Interativa
+A interface do aplicativo foi desenvolvida com Streamlit, oferecendo uma experiência amigável e intuitiva para o upload de vídeos, visualização da análise em tempo real e ajuste de parâmetros.
+
+![gif carregando video]()
+
+## 🛠️ Tecnologias
+    * Python 3.12
+
+    * MediaPipe
+
+    * OpenCV
+
+    * Streamlit
+
+    * Plotly
+
+    * Pandas
+
+    * NumPy
+
+## 👥 Equipe do Projeto
+O desenvolvimento do Corretor de Agachamento foi realizado por:
+
+Sidney Alves dos Santos Junior / github.com/SidneyJunior01234
+
+## 🚀 Como Executar
+Baixe o repositório (substitua SEU_USUARIO e SEU_REPOSITORIO):
+
+```
+git clone https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git
+cd SEU_REPOSITORIO
+```
+
+Crie e ative o ambiente virtual venv:
+
+```
+python3 -m venv .venv
+source .venv/bin/activate  # No Linux/macOS
+# .venv\Scripts\activate   # No Windows
+```
+
+Instale as bibliotecas:
+
+```
+pip install -r requirements.txt
+```
+
+Execute o projeto:
+
+```
+streamlit run app.py
+```
+
+## 📄 Licença
+O Corretor de Agachamento é licenciado sob a Licença MIT.
+
+📚 Referências Bibliográficas
+MediaPipe. Disponível em: https://google.github.io/mediapipe/
+
+Streamlit. Disponível em: https://streamlit.io/
+
+Plotly. Disponível em: https://plotly.com/python/
+
+OpenCV. Open Source Computer Vision Library. Disponível em: https://opencv.org/
+
+Seaborn. Statistical data visualization. Disponível em: https://seaborn.pydata.org/
+
+Pexels. Plataforma de vídeos e fotos de alta qualidade, licenciadas para uso gratuito. Disponível em: [https://www.pexels.com/](https://www.pexels.com/)
