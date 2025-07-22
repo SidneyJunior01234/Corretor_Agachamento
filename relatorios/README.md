@@ -37,11 +37,6 @@ Analise e melhore a sua forma de exectar agachamentos com feedback visual e um r
     ├── data/
     │   ├── brutos/
     │   │   └── video_exemplo.mp4
-    │   └── relatorios/
-    │       ├── angulos_agachamento.html
-    │       ├── dados_agachamento.csv
-    │       ├── duracao_agachamentos_interativo.html
-    │       └── posicao_quadril_agachamento.html
     ├── config/
     │   └── configuracoes.py
     ├── .gitignore
@@ -70,7 +65,8 @@ Analise e melhore a sua forma de exectar agachamentos com feedback visual e um r
             ├── __init__.py
             ├── desenhista_cv2.py
             └── gerador_graficos.py
-
+    ├── temp_upload/
+    
 ## 🔍 Funcionalidades
    1. Detecção de pose em vídeos de agachamento.
 
