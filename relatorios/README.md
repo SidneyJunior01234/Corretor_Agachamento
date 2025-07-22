@@ -133,15 +133,15 @@ Após a análise do vídeo, obtivemos as seguintes métricas gerais:
    4. Tempo médio de recuperação entre agachamentos: [TEMPO_MEDIO_EM_PE_ENTRE_AGACHAMENTOS] segundos
 
 ## Gráficos e Visualizações
-Para uma análise mais detalhada da execução do agachamento, os seguintes gráficos interativos foram gerados (abra os links para visualizar):
+Para uma análise mais detalhada da execução do agachamento, os seguintes gráficos interativos foram gerados:
 
-![grafico 1]()
+![grafico 1](https://github.com/SidneyJunior01234/Corretor_Agachamento/blob/main/relatorios/imagens/grafico1.png)
 *Gráfico 1: Variação dos Ângulos dos Joelhos e Tornozelos*
 
-![grafico 2]()
+![grafico 2](https://github.com/SidneyJunior01234/Corretor_Agachamento/blob/main/relatorios/imagens/grafico2.png)
 *Gráfico 2: Posição Y Média do Quadril ao Longo do Tempo*
 
-![grafico 3]()
+![grafico 3](https://github.com/SidneyJunior01234/Corretor_Agachamento/blob/main/relatorios/imagens/grafico3.png)
 *Gráfico 3: Duração de Cada Agachamento e Tempo em Pé*
 
 ## ✅ Conclusão
@@ -150,24 +150,24 @@ O Corretor de Agachamento se mostrou uma ferramenta que pode auxiliar na anális
 As métricas e os gráficos interativos fornecem um feedback quantitativo e visual, permitindo ao usuário entender melhor seu desempenho e identificar áreas para melhoria.
 
 ## 💻 Interface Interativa
-A interface do aplicativo foi desenvolvida com Streamlit, oferecendo uma experiência amigável e intuitiva para o upload de vídeos, visualização da análise em tempo real e ajuste de parâmetros.
+A interface do aplicativo foi desenvolvida com Streamlit, oferecendo uma experiência amigável e intuitiva para o upload de vídeos, visualização da análise e ajuste de parâmetros.
 
-![gif carregando video]()
+![gif carregando video](https://github.com/SidneyJunior01234/Corretor_Agachamento/blob/main/relatorios/imagens/interface.gif)
 
 ## 🛠️ Tecnologias
-    * Python 3.12
+  * Python 3.12
 
-    * MediaPipe
+  * MediaPipe
 
-    * OpenCV
+  * OpenCV
 
-    * Streamlit
+  * Streamlit
 
-    * Plotly
+  * Plotly
 
-    * Pandas
+  * Pandas
 
-    * NumPy
+  * NumPy
 
 ## 👥 Equipe do Projeto
 O desenvolvimento do Corretor de Agachamento foi realizado por:
@@ -204,7 +204,7 @@ streamlit run app.py
 ```
 
 ## 📄 Licença
-O Corretor de Agachamento é licenciado sob a Licença MIT.
+O Corretor de Agachamento é licenciado sob a [Licença MIT](https://github.com/SidneyJunior01234/Corretor_Agachamento/blob/main/LICENSE).
 
 📚 Referências Bibliográficas
 MediaPipe. Disponível em: https://google.github.io/mediapipe/
