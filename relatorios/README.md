@@ -45,6 +45,16 @@ Analise e melhore a sua forma de exectar agachamentos com feedback visual e um r
     ├── config/
     │   └── configuracoes.py
     ├── .gitignore
+    ├── relatorios/
+    │   ├── imagens/
+    │   │   └── agachamento gif.gif
+    │   │   └── avatar_correto.png
+    │   │   └── avatar_trasicao.png
+    │   │   └── grafico1.png
+    │   │   └── grafico2.png
+    │   │   └── grafico3.png
+    │   │   └── interface.gif        
+    │   └── README.md
     ├── requirements.txt
     └── src/
         ├── __init__.py
