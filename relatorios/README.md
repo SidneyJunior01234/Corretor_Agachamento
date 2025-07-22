@@ -62,9 +62,9 @@ Analise e melhore a sua forma de exectar agachamentos com feedback visual e um r
     │   │   ├── __init__.py
     │   │   └── gerenciador_csv.py
     │   └── visualizacao/
-    │   │   ├── __init__.py
-    │   │   ├── desenhista_cv2.py
-    │   │   └── gerador_graficos.py
+    │       ├── __init__.py
+    │       ├── desenhista_cv2.py
+    │       └── gerador_graficos.py
     └── temp_upload/
     
 ## 🔍 Funcionalidades
