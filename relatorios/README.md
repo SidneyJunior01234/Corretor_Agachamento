@@ -206,7 +206,7 @@ streamlit run app.py
 ## 📄 Licença
 O Corretor de Agachamento é licenciado sob a [Licença MIT](https://github.com/SidneyJunior01234/Corretor_Agachamento/blob/main/LICENSE).
 
-📚 Referências Bibliográficas
+## 📚 Referências Bibliográficas
 MediaPipe. Disponível em: https://google.github.io/mediapipe/
 
 Streamlit. Disponível em: https://streamlit.io/
