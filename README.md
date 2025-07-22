@@ -4,7 +4,7 @@ Baixe o repositório:
 ```
 mkdir Corretor_Agachamento
 cd Corretor_Agachamento
-git clone [https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git](https://github.com/SidneyJunior01234/Corretor_Agachamento.git)
+git clone https://github.com/SidneyJunior01234/Corretor_Agachamento.git
 ```
 
 Crie e ative o ambiente virtual venv:
