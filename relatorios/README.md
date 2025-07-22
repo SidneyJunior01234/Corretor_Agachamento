@@ -42,30 +42,30 @@ Analise e melhore a sua forma de exectar agachamentos com feedback visual e um r
     ├── .gitignore
     ├── relatorios/
     │   ├── imagens/
-    │   │   └── agachamento gif.gif
-    │   │   └── avatar_correto.png
-    │   │   └── avatar_trasicao.png
-    │   │   └── grafico1.png
-    │   │   └── grafico2.png
-    │   │   └── grafico3.png
+    │   │   ├── agachamento gif.gif
+    │   │   ├── avatar_correto.png
+    │   │   ├── avatar_trasicao.png
+    │   │   ├── grafico1.png
+    │   │   ├── grafico2.png
+    │   │   ├── grafico3.png
     │   │   └── interface.gif        
     │   └── README.md
     ├── requirements.txt
-    └── src/
-        ├── __init__.py
-        ├── core/
-        │   ├── __init__.py
-        │   ├── analisador_agachamento.py
-        │   ├── calculador_angulo.py
-        │   └── detector_pose.py
-        ├── manipulador_dados/
-        │   ├── __init__.py
-        │   └── gerenciador_csv.py
-        └── visualizacao/
-            ├── __init__.py
-            ├── desenhista_cv2.py
-            └── gerador_graficos.py
-    ├── temp_upload/
+    ├── src/
+    │   ├── __init__.py
+    │   ├── core/
+    │   │   ├── __init__.py
+    │   │   ├── analisador_agachamento.py
+    │   │   ├── calculador_angulo.py
+    │   │   └── detector_pose.py
+    │   ├── manipulador_dados/
+    │   │   ├── __init__.py
+    │   │   └── gerenciador_csv.py
+    │   └── visualizacao/
+    │   │   ├── __init__.py
+    │   │   ├── desenhista_cv2.py
+    │   │   └── gerador_graficos.py
+    └── temp_upload/
     
 ## 🔍 Funcionalidades
    1. Detecção de pose em vídeos de agachamento.
