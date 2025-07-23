@@ -1,5 +1,6 @@
 ## 🚀 Como Executar
-OBS: o projeto foi desenvolvido em ambiente Linux via WSL com python na versão 3.10.13
+OBS: o projeto foi desenvolvido em ambiente Linux via WSL com python na versão 3.10.13, essa versão é a estável para o uso do mediapipe.
+
 Baixe o repositório:
 
 ```
