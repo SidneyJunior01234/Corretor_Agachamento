@@ -1,4 +1,5 @@
 ## 🚀 Como Executar
+OBS: o projeto foi desenvolvido em ambiente Linux via WSL com python na versão 3.10.13
 Baixe o repositório:
 
 ```
@@ -11,8 +12,7 @@ Crie e ative o ambiente virtual venv:
 
 ```
 python3 -m venv .venv
-source .venv/bin/activate  # No Linux/macOS
-# .venv\Scripts\activate   # No Windows
+source .venv/bin/activate  # No Linux
 ```
 
 Instale as bibliotecas:
